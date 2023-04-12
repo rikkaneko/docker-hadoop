@@ -100,8 +100,8 @@ services:
         traefik.port: 8188
 
 volumes:
-  datanode:
   namenode:
+  datanode:
   hadoop_historyserver:
 
 networks:
