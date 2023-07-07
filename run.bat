@@ -17,7 +17,7 @@ goto usage
 	docker build -t bde2020/hadoop-nodemanager:%current_version% ./nodemanager
 	docker build -t bde2020/hadoop-historyserver:%current_version% ./historyserver
 	docker build -t bde2020/hadoop-submit:%current_version% ./submit
-	exit
+	exit /b 0
 
 :wordcount
 	docker build -t hadoop-wordcount ./submit-wordcount
@@ -26,7 +26,7 @@ goto usage
 	docker run --network %DOCKER_NETWORK% --env-file %ENV_FILE% bde2020/hadoop-base:%current_version% hdfs dfs -cat /output/*
 	:: docker run --network %DOCKER_NETWORK% --env-file %ENV_FILE% bde2020/hadoop-base:%current_version% hdfs dfs -rm -r /output
 	docker run --network %DOCKER_NETWORK% --env-file %ENV_FILE% bde2020/hadoop-base:%current_version% hdfs dfs -rm -r /input
-	exit
+	exit /b 0
 
 :salestatistics
 	docker build -t hadoop-statistics ./submit-statistics
@@ -35,11 +35,11 @@ goto usage
 	docker run --network %DOCKER_NETWORK% --env-file %ENV_FILE% bde2020/hadoop-base:%current_version% hdfs dfs -cat /output/*
 	:: docker run --network %DOCKER_NETWORK% --env-file %ENV_FILE% bde2020/hadoop-base:%current_version% hdfs dfs -rm -r /output
 	docker run --network %DOCKER_NETWORK% --env-file %ENV_FILE% bde2020/hadoop-base:%current_version% hdfs dfs -rm -r /input
-	exit
+	exit /b 0
 
 :clean
 	docker run --network %DOCKER_NETWORK% --env-file %ENV_FILE% bde2020/hadoop-base:%current_version% hdfs dfs -rm -r /output
-	exit
+	exit /b 0
 
 :usage
     echo This script required exactly one argument
@@ -49,4 +49,4 @@ goto usage
         )
     )
     echo usage: %~n0%~x0 ^[ build ^| wordcount ^| salestatistics ^| clean ^]
-    exit
+    exit /b 0
