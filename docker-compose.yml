@@ -62,3 +62,7 @@ volumes:
   hadoop_datanode:
   hadoop_historyserver:
 
+networks:
+  default:
+    name: docker-hadoop-net
+

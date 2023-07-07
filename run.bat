@@ -1,5 +1,5 @@
 @echo off
-set DOCKER_NETWORK=docker-hadoop-master_default
+set DOCKER_NETWORK=docker-hadoop-net
 set ENV_FILE=hadoop.env
 set current_version=2.0.0-hadoop3.2.1-java8
 

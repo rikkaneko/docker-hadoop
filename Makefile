@@ -1,4 +1,4 @@
-DOCKER_NETWORK = docker-hadoop_default
+DOCKER_NETWORK = docker-hadoop-net
 ENV_FILE = hadoop.env
 current_version := 2.0.0-hadoop3.2.1-java8
 build:
